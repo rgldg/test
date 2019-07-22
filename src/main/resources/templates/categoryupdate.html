@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>categorytest.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <form th:action="@{/docategoryupdate}" th:object="${category}" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>id<input type="hidden" name="id" th:value="${category.id}"/></td>
+				<td>类目名称<input type="text" name="name" th:value="${category.name}" placeholder="name"></td>
+			</tr>
+		</table>
+		<a href="/admin">主页</a>
+		<a href="/tocategoryshow">返回</a>
+		<input type="submit" value="修改">
+    </form>
+  </body>
+</html>

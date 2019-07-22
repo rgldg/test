@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>productshow.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+        a.disabled {
+            pointer-events: none;
+            filter: alpha(opacity=20); /*IE滤镜，透明度50%*/
+            -moz-opacity: 0.2; /*Firefox私有，透明度50%*/
+            opacity: 0.2; /*其他，透明度50%*/
+        }
+</style>
+  </head>
+  
+  <body>
+    <form action="" method="get" enctype="multipart/form-data">
+    	<div>
+    		<table>
+    			<tr>
+    				<th>商品ID</th>
+    				<th>点击次数</th>
+    				<th>商品名称</th>
+    				<th>商品图片</th>
+    				<th>商品描述</th>
+    				<th>商品价格</th>
+    				<th>商品库存</th>
+    			</tr>
+    			<tr th:each="p:${session.productList}">
+    				<td th:text="${p.id}"></td>
+    				<td th:text="${p.count}"></td>
+    				<td th:text="${p.name}"></td>
+    				<td><img th:src="@{${p.path}}" height="200px" width="200px"/></td>
+    				<!-- <td><img src="@{'../photo/'+${p.path}}" height="200px" width="200px"/></td> -->
+    				<!-- <td th:text="${p.path}"></td> -->
+    				<td th:text="${p.description}"></td>
+    				<td th:text="${p.price}"></td>
+    				<td th:text="${p.stock}"></td>
+    				<!-- <td><a class="disabled" th:href="@{/toDis(id=${p.id})}" style="opacity:0.2">打折</a></td> -->
+    				<td><a th:href="@{/toDis(id=${p.id})}">打折</a></td>
+    				<td><a th:href="@{/toNew(id=${p.id})}">新品</a></td>
+    				<td><a th:href="@{/toRec(id=${p.id})}">推荐</a></td>
+    				<td><a th:href="@{/prodelete(id=${p.id})}">删除</a></td>
+    				<td><a th:href="@{/toEdit(id=${p.id})}">修改</a></td>
+    			</tr>
+    		</table>
+    		<a href="/admin">主页</a>
+    	</div>
+    </form>
+  </body>
+</html>

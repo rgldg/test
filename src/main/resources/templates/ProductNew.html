@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>ProductNew.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+           <form action="" method="get" enctype="multipart/form-data">
+    	<div>
+    		<table>
+    			<tr>
+    				<th>商品ID</th>
+    				<th>点击次数</th>
+    				<th>商品名称</th>
+    				<th>商品图片</th>
+    				<th>商品描述</th>
+    				<th>商品价格</th>
+    				<th>商品库存</th>
+    			</tr>
+    			<tr th:each="p:${session.productList}">
+    				<td th:text="${p.id}"></td>
+    				<td th:text="${p.count}"></td>
+    				<td th:text="${p.name}"></td>
+    				<td><img th:src="@{${p.path}}" height="200px" width="200px"/></td>
+    				<!-- <td><img src="@{'../photo/'+${p.path}}" height="200px" width="200px"/></td> -->
+    				<!-- <td th:text="${p.path}"></td> -->
+    				<td th:text="${p.description}"></td>
+    				<td th:text="${p.price}"></td>
+    				<td th:text="${p.stock}"></td>    				
+    			</tr>
+    		</table>
+    		<a href="/">主页</a>
+    	</div>
+    </form>
+  </body>
+</html>

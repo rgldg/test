@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>categorytest.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <form th:action="@{/doadminuserupdate}" th:object="${user}" method="post" enctype="multipart/form-data">
+		
+				id<input type="hidden" name="id" th:value="${user.id}"/>
+				用户名<input type="text" name="username" th:value="${user.username}" placeholder="username">
+				真实名<input type="text" name="realname" th:value="${user.realname}" placeholder="realname">
+				<select name="sex">  		
+ 					<!-- <option selected="selected" th:value="${product.category.id}" th:text="${product.category.name}"></option> -->
+ 					<option selected="selected" th:if="${user.sex} eq '1'" th:value="${user.sex}" th:text="男"></option>
+    				<option th:if="${user.sex} eq '0'" th:value="${user.sex}" th:text="女"></option>
+    				<option th:if="${user.sex} eq '0'" value="1">男</option>
+    				<option th:if="${user.sex} eq '1'" value="0">女</option>
+    			</select>
+				<!-- 性别<input type="text" name="sex" th:value="${user.sex}" placeholder="sex"> -->
+				电话<input type="text" name="tel" th:value="${user.tel}" placeholder="tel">
+				地址<input type="text" name="address" th:value="${user.address}" placeholder="address">
+				
+
+		<a href="/admin">主页</a>
+		<a href="/toadminusershow">返回</a>
+		<input type="submit" value="修改">
+    </form>
+  </body>
+</html>

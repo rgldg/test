@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>categorytest.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <form action="/categoryshow" method="post" accept-charset="utf-8">
+		<select name="catagory">
+    		<option>请选择类目</option>
+ 			<option th:each="p:${session.categoryList}" th:value="${p.id}" th:text="${p.name}">类目列表</option>
+    	</select>
+		<input type="submit" value="test">
+    </form>
+  </body>
+</html>

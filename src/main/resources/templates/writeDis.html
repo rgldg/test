@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>writeDis.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+	<form action="doDis" th:object="${product}">
+	<input type="hidden" name="id" th:value="${product.id}"/>
+	<!-- <input th:each="p:${session.productList}" type="hidden" name="id" th:value="${p.id}"/> -->
+    	折扣<input type="text" name="discount"><br>    	
+    	   <input type="submit" value="提交">
+    	<a href="/admin">主页</a>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>用户信息修改</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <form action="/doregister" th:object="${user}" method="post" accept-charset="utf-8">
+    	用户名:<input type="text" name="username"><br>
+    	密码:<input type="password" name="password"><br>
+    	确认密码:<input type="password" name="password2"><br>
+    	支付密码:<input type="password" name="payword"><br>
+    	确认支付密码:<input type="password" name="payword2"><br>
+    	联系电话:<input type="text" name="tel"><br>
+    	真实姓名:<input type="text" name="realname"><br>
+    	性别:<select name="sex">
+    		<option value="1">男</option>
+    		<option value="0">女</option>   		    		
+    	</select><br>
+    	地址:<input type="text" name="address"><br>
+    	<input type="submit" value="注册"> 
+    </form>
+    <a href="/"></a>
+  </body>
+</html>

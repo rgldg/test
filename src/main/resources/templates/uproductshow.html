@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>uproductshow.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+  </head>
+  
+  <body>
+ <div th:replace="index::head"></div>
+       <form action="" method="get" enctype="multipart/form-data">    
+    	<div>
+    		<table>
+    			<tr>
+    				<th>商品ID</th>
+    				<th>点击次数</th>
+    				<th>商品名称</th>
+    				<th>商品图片</th>
+    				<th>商品描述</th>
+    				<th>商品价格</th>
+    				<th>商品库存</th>
+    			</tr>
+    			<tr th:each="productList:${session.productList}">
+    				<td th:text="${productList.id}"></td>
+    				<td th:text="${productList.count}"></td>
+    				<td th:text="${productList.name}"></td>
+    				<td><img th:src="@{${productList.path}}" height="200px" width="200px"/></td>
+    				<!-- <td><img src="@{'../photo/'+${p.path}}" height="200px" width="200px"/></td> -->
+    				<!-- <td th:text="${p.path}"></td> -->
+    				<td th:text="${productList.description}"></td>
+    				<td th:text="${productList.price}"></td>
+    				<td th:text="${productList.stock}"></td>
+    				<td><a th:href="@{/toadd(uid=${session.user.id},id=${productList.id})}">购买</a></td>    				
+    			</tr>
+    		</table>
+    		<a href="/">主页</a>
+    	</div>
+    	
+    </form>
+  </body>
+</html>

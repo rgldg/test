@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>adminregister.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+        <form action="/doadminregister" method="post" accept-charset="utf-8">
+    	管理员账号:<input type="text" name="username"><br>
+    	密码:<input type="password" name="password"><br>
+    	确认密码:<input type="password" name="password2"><br>
+    	权限:<select name="permission">
+    		<option value="1">最高权限</option>
+    		<option value="2">一级权限</option>
+    		<option value="3">二级权限</option>
+    	</select>
+    	<input type="submit" value="注册"> 
+    </form>
+  </body>
+</html>

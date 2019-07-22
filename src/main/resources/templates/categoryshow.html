@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>categorytest.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style>
+        a.disabled {
+            pointer-events: none;
+            filter: alpha(opacity=20); /*IE滤镜，透明度50%*/
+            -moz-opacity: 0.2; /*Firefox私有，透明度50%*/
+            opacity: 0.2; /*其他，透明度50%*/
+        }
+</style>
+  </head>
+  
+  <body>
+    <form action="" method="get" enctype="multipart/form-data">
+    	<div>
+    		<table>
+    			<tr>
+    				<th>类目ID</th>
+    				<th>类目名称</th>    				
+    			</tr>
+    			<tr th:each="p:${session.category}">
+    				<td th:text="${p.id}"></td>   				
+    				<td th:text="${p.name}"></td>    			
+    				<td><a class="disabled" th:href="@{/catedelete(id=${p.id})}" style="opacity:0.2" >删除</a></td>
+    				<td><a th:href="@{/tocategoryupdate(id=${p.id})}">修改</a></td>
+    			</tr>
+    		</table>
+    		<a href="/admin">主页</a>
+    	</div>
+    </form>
+  </body>
+</html>

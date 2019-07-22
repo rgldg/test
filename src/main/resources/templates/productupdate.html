@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>productshow.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <form th:action="@{/proupdate}" th:object="${product}" method="post" enctype="multipart/form-data"><!-- th:object="${session.product}" -->
+    	<div>
+    	<table>
+    		<tr>
+    			<td>id<input type="hidden" name="id" th:value="${product.id}"/></td>
+    			<td>count<input type="hidden" name="count" th:value="${product.count}"/></td>
+    			<td>图片上传<input type="file" name="photoname">
+    			路径<td th:text="${product.path}"></td>
+    			<td><img th:src="@{${product.path}}" height="200px" width="200px"/></td>   			
+    			<td>商品名称<input type="text" name="name" th:value="${product.name}" placeholder="name"></td>
+    			<td>商品库存<input type="text" name="stock" th:value="${product.stock}" placeholder="stock"></td>
+    			<td>商品价格<input type="text" name="price" th:value="${product.price}" placeholder="price"></td>
+    			<td>商品描述<input type="text" name="description" th:value="${product.description}" placeholder="description"></td>    		
+    		</tr>    		
+    	</table>  	
+
+      <select name="categoryId">
+    		<option>请选择类目</option>
+ 			<!-- <option selected="selected" th:value="${product.category.id}" th:text="${product.category.name}"></option> -->
+ 		<option selected="selected" th:value="${product.category.id}" th:text="${product.category.name}"></option>
+    	<option th:each="p:${session.categoryList}" th:value="${p.id}" th:text="${p.name}"></option>
+    	</select>
+    	<input type="submit" value="提交">
+    	</div>
+    	<a href="/admin">主页</a>
+    </form>
+  </body>
+</html>

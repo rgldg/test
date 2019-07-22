@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>商城主页</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+  <div th:fragment="head">
+   <a href="javascript:;">
+                    <span th:if="${session.user == null}">请登陆</span>
+                    <span th:if="${session.user != null}" th:text="'欢迎您!&nbsp;' + ${session.user.username}">请登陆</span>      
+                </a>
+    <a th:if="${session.user != null}" href="/logout">退出登录</a>
+    <a th:if="${session.user == null}" href="/login">点击登录</a>
+    <a href="/register">点击注册</a>
+    <a th:if="${session.user != null}" th:href="@{/toUserEidt(id=${session.user.id})}">用户信息修改</a>
+    <a href="/touproductshow">商品列表</a>
+    <div>
+    	<ul>
+    	<li>
+    		<a href="/NewShow">新品</a>
+    	</li>
+    	<li>
+    		<a href="/RecShow">推荐</a>
+    	</li>
+    	<li>
+    		<a href="/DisShow">打折</a>
+    	</li>
+    </ul>
+    </div>
+    <a th:if="${session.user != null}" th:href="@{/toshopcart(uid=${session.user.id})}">购物车</a>
+  </div>
+  </body>
+</html>

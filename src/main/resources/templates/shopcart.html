@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>shopcart.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+
+  <body>
+    
+        <form action="" method="get" enctype="multipart/form-data">
+    	<div>
+    		<table>
+    			<tr>
+    				<th>商品ID</th>   				
+  				
+    				<th>商品数量</th>
+    				<th>商品价格</th>
+    				
+    			</tr>
+    			<tr th:each="p:${session.shopList}">
+    				<td th:text="${p.productid}"></td>				   				
+    				<td th:text="${p.amount}"></td>
+    				<td th:text="${p.total}"></td>
+    				<!-- <td><img src="@{'../photo/'+${p.path}}" height="200px" width="200px"/></td> -->
+    				<!-- <td th:text="${p.path}"></td> -->  				
+    				<!-- <td><a class="disabled" th:href="@{/toDis(id=${p.id})}" style="opacity:0.2">打折</a></td> -->
+    				<!-- <td><a th:href="@{/shopdelete(id=${p.id})}">删除</a></td> -->
+    			</tr>
+    		</table>
+    		<a href="/">主页</a>
+    	</div>
+    </form>
+  </body>
+</html>
